@@ -30,7 +30,7 @@ a{
 }
 
 .background-hero{
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.623), rgba(0, 0, 0, 0.5)), url('./assets/hero-2.jpg');
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.623), rgba(0, 0, 0, 0.5)), url('/assets/hero-2.jpg');
   background-position: center;
   background-size: cover;
 }
