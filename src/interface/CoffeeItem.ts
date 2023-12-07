@@ -1,7 +1,8 @@
 export interface CoffeeItem {
-  id:number;
+  id:string;
   title:string;
   description:string;
   ingredients:string[];
   image:string;
+  isHot: boolean;
 }

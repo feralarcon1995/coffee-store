@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { toast, ToastOptions, TypeOptions } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { CoffeeItem } from "../interface/CoffeeItem";
 
 import api from '../api/api';
@@ -9,7 +9,7 @@ interface CoffeeContextProps {
   icedCoffees: CoffeeItem[];
   loading: boolean;
   favouriteCoffees: CoffeeItem[];
-  toggleFavourite: (id: number) => void;
+  toggleFavourite: (id: string) => void;
 }
 
 interface CoffeeProviderProps {
@@ -35,29 +35,7 @@ const CoffeeContextProvider: React.FC<CoffeeProviderProps> = ({ children }) => {
   const [favouriteCoffees, setFavouriteCoffees] = useState<CoffeeItem[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const createToast = (message: string, type: TypeOptions) => {
-    const options: ToastOptions = {
-      position: 'bottom-right',
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'dark',
-    };
 
-    switch (type) {
-      case 'success':
-      case 'info':
-      case 'warning':
-      case 'error':
-        (toast[type])(message, options);
-        break;
-      default:
-        console.error(`Invalid toast type: ${type}`);
-    }
-  }
 
   const timeout = (ms: number) => new Promise(res => setTimeout(res, ms));
   const getCoffees = async () => {
@@ -70,20 +48,22 @@ const CoffeeContextProvider: React.FC<CoffeeProviderProps> = ({ children }) => {
     setLoading(false);
   }
 
-  const toggleFavourite = (id: number) => {
+  const toggleFavourite = (id: string) => {
     const favID = hotCoffees.concat(icedCoffees).find((coffee) => coffee.id === id);
     if (favID) {
       const favCoffee = favouriteCoffees.some((fav) => fav.id === id)
       if (!favCoffee) {
         const newFavouriteCoffees = [...favouriteCoffees, favID];
+        console.log('fav', newFavouriteCoffees)
         setFavouriteCoffees(newFavouriteCoffees);
         localStorage.setItem('favs', JSON.stringify(newFavouriteCoffees));
-        createToast('Added to Favourites.', 'success');
+        toast.success('Added to Favourites.')
       } else {
         const newFavouriteCoffees = favouriteCoffees.filter((fav) => fav.id !== id);
+        console.log('unfav', newFavouriteCoffees)
         setFavouriteCoffees(newFavouriteCoffees);
         localStorage.setItem('favs', JSON.stringify(newFavouriteCoffees));
-        createToast('Removed from Favourites.', 'error');
+        toast.success('Removed from Favourites.')
       }
     }
   }

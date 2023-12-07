@@ -15,5 +15,6 @@ module.exports = {
       { allowConstantExport: false},
 
     ],
+    'react-hooks/exhaustive-deps': 'off'
   },
 }

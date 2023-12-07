@@ -11,7 +11,7 @@ const Menu = () => {
 
       <article className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-3 md:p-10 z-10" >
         {hotCoffees.slice(0,4).map((coffee) => (
-          <Card coffee={coffee} key={coffee.id} isHot={true}/>
+          <Card coffee={coffee} key={coffee.id} />
         ))}
       </article>
 
