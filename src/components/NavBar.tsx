@@ -58,13 +58,13 @@ const NavBar = () => {
 
         <div className={`md:flex hidden ${isMenuOpen ? "block" : "hidden"}`}>
           <ul className="mt-4 flex gap-4 pr-4 text-coffee font-bold items-center">
-            <Link to="/" className="transition-all border-b-2 border-transparent hover:border-black hover:text-black text-xl">
+            <Link to="/" className=" text-yellow transition-all border-b-2 border-transparent hover:border-beige hover:text-beige text-xl">
               Home
             </Link>
-            <a href="#about" className="transition-all border-b-2 border-transparent hover:border-black hover:text-black text-xl">
+            <a href="#about" className=" text-yellow transition-all border-b-2 border-transparent hover:border-beige hover:text-beige text-xl">
               About
             </a>
-            <Link to="/coffee-store" className="transition-all border-b-2 border-transparent hover:border-black hover:text-black text-xl">
+            <Link to="/coffee-store" className=" text-yellow transition-all border-b-2 border-transparent hover:border-beige hover:text-beige text-xl">
               Store
             </Link>
             <Link to="/favourite-coffees" className=" flex items-center justify-center gap-2 bg-yellow p-4 w-32 rounded-2xl text-xl text-black transition-all hover:bg-beige hover:shadow-lg font-bold border-2 border-transparent hover:border-2 hover:border-coffee hover:font-bold">
