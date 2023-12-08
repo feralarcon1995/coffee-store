@@ -22,20 +22,18 @@ const CoffeeStore = () => {
     })
     setFilteredCoffees(sortedCoffees)
   }
+  const filteredHotCoffees = hotCoffees.filter((coffee) => {
+    return coffee.title.toLowerCase().includes(searchQuery.toLowerCase())
+  })
 
+  const filteredIcedCoffees = icedCoffees.filter((coffee) => {
+    return coffee.title.toLowerCase().includes(searchQuery.toLowerCase())
+  })
 
   useEffect(() => {
-    const filteredHotCoffees = hotCoffees.filter((coffee) => {
-      coffee.title.toLowerCase().includes(searchQuery.toLowerCase())
-    })
-
-    const filteredIcedCoffees = icedCoffees.filter((coffee) => {
-      coffee.title.toLowerCase().includes(searchQuery.toLowerCase())
-    })
-
     const mergedCoffees = [...filteredHotCoffees, ...filteredIcedCoffees];
     setFilteredCoffees(mergedCoffees)
-  },[searchQuery])
+  }, [searchQuery])
   return (
 
     <section>
@@ -58,10 +56,10 @@ const CoffeeStore = () => {
             <p className="text-gray text-xl text-center py-4 animate-fade-up animate-duration-[1400ms] animate-delay-1000">Have you tried these flavours?</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-2 md:p-6 animate-fade-up animate-duration-[1400ms] animate-delay-1000">
               {(filteredCoffees.length > 0 ? filteredCoffees : hotCoffees)
-              .filter((coffee) => coffee.isHot)
-              .map((coffee) => (
-                <Card coffee={coffee} key={coffee.id} />
-              ))}
+                .filter((coffee) => coffee.isHot)
+                .map((coffee) => (
+                  <Card coffee={coffee} key={coffee.id} />
+                ))}
             </div>
           </article>
 

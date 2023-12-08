@@ -15,6 +15,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({onSearch}) => {
     const result = onSearch(searchQuery);
     return result
   }
+
   return (
     <form className='flex w-full md:w-6/12 items-center animate-fade-left animate-duration-[1400ms] animate-delay-1000' onSubmit={handleSubmit}>
       <input 
