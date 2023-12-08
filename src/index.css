@@ -11,38 +11,49 @@ font-family: 'Playfair Display',
 serif;
 */
 
-html{
+html {
   scroll-behavior: smooth;
 }
-h1{
-font-family: 'Dancing Script',
-    cursive;
-  }
 
-h2,h3,h4,h5,p, .title{
+h1 {
+  font-family: 'Dancing Script',
+    cursive;
+}
+
+h2,
+h3,
+h4,
+h5,
+p,
+.title {
   font-family: 'Playfair Display',
     serif;
 }
 
-a{
+a {
   text-decoration: none;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.background-hero{
+.background-hero {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.623), rgba(0, 0, 0, 0.5)), url('/assets/hero-2.jpg');
   background-position: center;
   background-size: cover;
 }
 
-.coffee-cup{
+.coffee-cup {
   stroke-dasharray: 2000;
   stroke-dashoffset: 2000;
   animation: draw 1.5s linear infinite;
 }
 
 @keyframes draw {
-  to{
+  to {
     stroke-dashoffset: 0;
   }
+}
+
+::selection {
+  background: #603809;
+  color: #fff;
 }
